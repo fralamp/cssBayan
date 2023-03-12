@@ -1,1 +1,1 @@
-(https://fralamp.github.io/cssBayan/)[cssBayan]
+[cssBayan](https://fralamp.github.io/cssBayan/)
