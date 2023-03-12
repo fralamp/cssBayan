@@ -13,18 +13,25 @@ html {
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Tilt Warp', cursive;
     font-weight: 400;
     /* color: #0059d9;  */
     min-width: 320px;
-    overflow-x: hidden;
     background-color: #f6f6ec;
-    font-weight: 700;
+}
+
+.accordion{
+    /* display: flex;
+    height: 100vh;
+    align-items: center;
+    width: 100vw;
+    justify-content: center; */
 }
 
 .accordion__container {
     font-size: 1.5rem;
     margin: 0 10%;
+    /* width: 100%; */
 /* padding: 0 1.5rem; */
 }
 
@@ -40,14 +47,19 @@ body{
     width: 100%;
     height: 0;
     border: 1px solid #d2d9e2;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
 }
 
 .accordion__label {
     align-items: center;
     font-size: 2rem;
     cursor: pointer;
+    max-height: 0;
     transition: color .4s ease;
+}
+
+.accordion__mem{
+    cursor: pointer;
 }
 
 .accordion__subtitle{
@@ -88,15 +100,25 @@ body{
 
 
 .accordion__block-image{
-    display: none;
+    display: flex;
+    /* max-height: 15rem; */
+    max-height: 0rem;
+    /* transform: scale(.5); */
+    /* opacity: 0; */
 }
 
 
 .accordion__image{
-    display: block;
+    /* transform: scale(.5); */
+    /* opacity: 0;  */
+    /* display: block; */
     margin: 0 auto;
     object-fit: cover;
     width: 100%;
+    max-width: 40rem;
+    /* max-height: 15rem; */
+    max-height: 0rem;
+    transition: max-height .3s ease-out;
 }
 
 .accordion__text{
@@ -111,12 +133,24 @@ body{
 
 
 .accordion__label:has(.accordion__input:checked) .accordion__block-image {
-    display: block;
+    /* display: block; */
+    /* opacity: 1; */
+    /* max-height: 30rem; */
+    max-height: none;
+    /* transform: scale(1);
+    opacity: 1;  */
+}
+
+.accordion__label:has(.accordion__input:checked) .accordion__image {
+    /* display: block; */
+    /* opacity: 1; */
+    /* max-height: 30rem; */
+    max-height: none;
 }
 
 .accordion__container:hover:has(.accordion__input:checked) .accordion__cancel {
     display: block;
-    }
+}
 
 .accordion__label:has(.accordion__input:checked) .accordion__plus {
     /* opacity: 0; */
@@ -147,9 +181,40 @@ body{
     display: none;
 }
 
-.accordion__mem:hover .accordion__block-image{
-    display: block;
+.accordion__mem{
+    padding-bottom: 1.5rem;
 }
+
+.accordion__mem:hover
+:has(.accordion__input:not(:checked)) 
+.accordion__block-image {
+    /* display: block; */
+    /* opacity: 1; */
+    max-height: 30rem;
+    /* max-height: none;  */
+}
+
+.accordion__mem:hover
+:has(.accordion__input:not(:checked)) 
+.accordion__image {
+    /* display: block; */
+    /* opacity: 1; */
+    max-height: 30rem;
+    /* max-height: none; */
+
+}
+
+
+/* .accordion__mem:hover .accordion__block-image{
+   
+    opacity: 1;
+    max-height: 30rem;
+}
+
+.accordion__mem:hover .accordion__image{
+    opacity: 1;
+    max-height: 30rem;
+} */
 
 .accordion__mem:hover .accordion__text{
     margin-bottom: 2rem;
@@ -164,14 +229,15 @@ body{
     }
 }
 
-/* @media (min-width: 820px){
-body {
-background-color: blue;
-}
+@media (min-width: 820px){
+    .accordion__subtitle{
+        font-size: 2.5rem;
+    }
 }
 
 @media (max-width: 1920px){
-body {
-background-color:  red;
-}
-} */
+    .accordion__subtitle{
+        font-size: 3rem;
+    }
+} 
+
